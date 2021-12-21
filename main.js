@@ -74,8 +74,8 @@ async function placeStars() {
     let starElm = document.createElement('p')
     starElm.innerText = '+'
     starElm.classList.add('star')
-    let randTop = Math.floor(Math.random()*600)+50
-    let randLeft = Math.floor(Math.random()*600)+50
+    let randTop = Math.floor(Math.random()*(window.innerHeight-50))+10
+    let randLeft = Math.floor(Math.random()*(window.innerWidth-50))+50
     let randDur = Math.floor(Math.random()*1600)+4800
     let randDelay = Math.floor(Math.random()*800)
     starElm.style.top = randTop + 'px'
@@ -98,7 +98,7 @@ async function rollInDesc() {
   await sleep(5000)
   removeClass('.desc p.dark', 'appear')
   addClass('.desc p.dark', 'disappear')
-  await sleep(8000)
+  await sleep(5000)
   showElm('.input-wrapper')
   addClass('.input-wrapper', 'appear')
   removeClass('.input-wrapper', 'up')
@@ -212,6 +212,8 @@ function addLayer() {
 }
 
 function onTyping() {
+  let inputElm = document.querySelector("input")
+  if (inputElm.value.length < 2) return
   debounce(setStage, 4000)
 }
 
