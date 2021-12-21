@@ -46,6 +46,7 @@ async function setStage() {
 
 async function startShow() {
   await sleep(1000)
+  placeStars()
   let conseq = 0
   while (layerWidth > 0) {
     let layer = addLayer()
@@ -65,6 +66,26 @@ async function startShow() {
   moveScene()
   await sleep(7000)
   rollInDesc()
+}
+
+async function placeStars() {
+  let randAmount = Math.floor(Math.random()*6)+4
+  for (let i=0; i<randAmount; i++) {
+    let starElm = document.createElement('p')
+    starElm.innerText = '+'
+    starElm.classList.add('star')
+    let randTop = Math.floor(Math.random()*600)+50
+    let randLeft = Math.floor(Math.random()*600)+50
+    let randDur = Math.floor(Math.random()*1600)+4800
+    let randDelay = Math.floor(Math.random()*800)
+    starElm.style.top = randTop + 'px'
+    starElm.style.left = randLeft + 'px'
+    starElm.style.animation = `${randDur}ms ease ${randDelay}ms flicker infinite`
+    let stageElm = document.querySelector('.stage')
+    stageElm.append(starElm)
+    let randSleep = Math.floor(Math.random()*1000)+200
+    await sleep(randSleep)
+  }
 }
 
 async function rollInDesc() {

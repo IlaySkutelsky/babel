@@ -107,6 +107,20 @@ input.down {
   width: 100%;
 }
 
+.star {
+  position: fixed;
+  margin: 0;
+  z-index: -1;
+}
+
+@keyframes flicker {
+  0% {opacity: 1;}
+  40% {opacity: 1;}
+  50% {opacity: 0.2;}
+  60% {opacity: 1;}
+  100% {opacity: 1;}
+}
+
 .desc-wrapper {
   width: 100%;
   height: 100vh;
