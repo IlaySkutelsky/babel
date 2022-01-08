@@ -246,7 +246,13 @@ function addLayer() {
 
 function onTyping() {
   let inputElm = document.querySelector("input")
-  if (inputElm.value.length < 2) return
+  if (inputElm.value.length < 2){ 
+    if (timer) {
+      removeClass(".input-border", "show-bar")
+      clearTimeout(timer)
+    }
+    return
+  }
   debounce(setStage, 4000)
 }
 
