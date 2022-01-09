@@ -24,9 +24,37 @@ function init() {
   inputElm = document.querySelector("input")
   inputElm.value = ""
   inputElm.focus()
+  fillGround()
 }
 
 init()
+
+function fillGround() {
+  let targetWidth = window.innerWidth
+  let counter = 0;
+  let groundElm = document.querySelector('.ground')
+  let groundWidth = getWidthOfGroundElm(groundElm)
+  console.log(targetWidth)
+  while (groundWidth < targetWidth)
+  {
+    counter++
+    groundElm.innerHTML += '-'
+    groundWidth = getWidthOfGroundElm(groundElm)
+    console.log(groundWidth)
+    if (groundWidth>2000 || counter>2000) break
+  }
+}
+
+function getWidthOfGroundElm() {
+  let groundElm = document.querySelector('.ground')
+  let stageElm = document.querySelector('.stage')
+  showElm('.stage')
+  groundElm.style.display = 'inline-block'
+  let width = groundElm.offsetWidth
+  hideElm('.stage')
+  groundElm.style.display = 'unset'
+  return width
+}
 
 function restartAll() {
   showElm('.input-wrapper')
@@ -166,28 +194,28 @@ function moveScene() {
   for (let i=0; i< layers.length; i++) {
     let randDur = Math.floor(Math.random() * 500) + 36000
     let randDelay = Math.floor(Math.random() * 100)
-    layers[i].style.animation = `${randDur}ms pan ${randDelay}ms forwards steps(80, start)`
+    layers[i].style.animation = `${randDur}ms pan ${randDelay}ms forwards steps(60, start)`
   }
 }
 
 let towerIsStuckToBottom = true
 
 function testTowerHeight() {
-  let towerElm = document.querySelector('.tower')
-  let towerHeight = towerElm.getBoundingClientRect().height
+  let stageElm = document.querySelector('.stage')
+  let stageHeight = stageElm.getBoundingClientRect().height
   let windowHeight = window.innerHeight
   let topGap = 200
   if (towerIsStuckToBottom) {
-    if (towerHeight+topGap >= windowHeight) {
-      let offset = windowHeight-towerHeight
-      towerElm.style['bottom'] = 'unset'
-      towerElm.style['top'] = offset + 'px' 
+    if (stageHeight+topGap >= windowHeight) {
+      let offset = windowHeight-stageHeight
+      stageElm.style['bottom'] = 'unset'
+      stageElm.style['top'] = offset + 'px' 
       towerIsStuckToBottom = false
     }
   } else {
-     if (towerHeight <= windowHeight) {
-        towerElm.style['bottom'] = 0
-        towerElm.style['top'] = 'unset'
+     if (stageHeight <= windowHeight) {
+        stageElm.style['bottom'] = '0.7rem'
+        stageElm.style['top'] = 'unset'
         towerIsStuckToBottom = true
       }
   }

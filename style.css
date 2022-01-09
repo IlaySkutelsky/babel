@@ -29,7 +29,7 @@ body.dark {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 20vh;
+  padding: 20vh 5px 5px 5px;
   transform: translateY(0);
   transition: all 4s;
 }
@@ -84,17 +84,22 @@ input.down {
 
 @keyframes pan {
   from {transform: translateX(0);}
-  to {transform: translateX(200%);}
+  to {transform: translateX(100%);}
 }
 
 .stage {
+  display: grid;
   font-size: 20px;
   color: white;
   line-height: 13px;
+  position: absolute;
+  bottom: 0.7rem;
+  width: 100%;
 }
 
 .stage p {
   margin: 0;
+  transform: translateX(-5%);
 }
 
 .ground {
@@ -102,8 +107,8 @@ input.down {
 }
 
 .tower {
-  position: absolute;
-  bottom: 0;
+  grid-area: 1/1;
+  align-self: end;
   width: 100%;
 }
 
@@ -122,6 +127,7 @@ input.down {
 }
 
 .desc-wrapper {
+  grid-area: 1/1;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -160,4 +166,30 @@ input.down {
 }
 .hidden {
   display: none;
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 7px;
+  }
+  input {
+    font-size: 1rem;  
+    padding: 4px;
+ }
+ .stage p {
+   transform: translateX(0);
+ }
+}
+@media (max-width: 450px) {
+  body {
+    font-size: 6px;
+  }
+  input {
+    padding: 3px;
+ }
+}
+@media (max-width: 360px) {
+  body {
+    font-size: 5px;
+  }
 }
