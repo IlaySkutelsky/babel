@@ -100,6 +100,7 @@ async function setStage() {
   let inputElm = document.querySelector("input")
   gift = inputElm.value;
   inputElm.editable="false"
+  inputElm.blur()
   // gossip(gift)
   addClass("input", "down")
   await sleep(1600)
