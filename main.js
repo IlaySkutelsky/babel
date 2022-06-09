@@ -28,11 +28,13 @@ function init() {
 }
 
 init()
+window.onresize = fillGround()
 
 function fillGround() {
-  let targetWidth = window.innerWidth
+  let targetWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
   let counter = 0;
   let groundElm = document.querySelector('.ground')
+  groundElm.innerHTML = ''
   let groundWidth = getWidthOfGroundElm(groundElm)
   console.log(targetWidth)
   while (groundWidth < targetWidth)
