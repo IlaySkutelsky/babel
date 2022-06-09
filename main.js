@@ -97,7 +97,8 @@ function obfAddress() {
 async function setStage() {
   let inputElm = document.querySelector("input")
   gift = inputElm.value;
-  gossip(gift)
+  inputElm.editable="false"
+  // gossip(gift)
   addClass("input", "down")
   await sleep(1600)
   addClass(".input-wrapper", "up")
