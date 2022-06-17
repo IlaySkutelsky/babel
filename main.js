@@ -24,17 +24,17 @@ function init() {
   inputElm = document.querySelector("input")
   inputElm.value = ""
   inputElm.focus()
-  fillGround()
+  // fillGround()
 }
 
 init()
-window.onresize = fillGround()
+// window.onresize = fillGround(true)
 
-function fillGround() {
+function fillGround(forceReset) {
   let targetWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
   let counter = 0;
   let groundElm = document.querySelector('.ground')
-  groundElm.innerHTML = ''
+  if (forceReset) groundElm.innerHTML = ''
   let groundWidth = getWidthOfGroundElm(groundElm)
   console.log(targetWidth)
   while (groundWidth < targetWidth)

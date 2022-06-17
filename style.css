@@ -88,7 +88,8 @@ input.down {
 }
 
 .stage {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   font-size: 20px;
   color: white;
   line-height: 13px;
@@ -99,7 +100,7 @@ input.down {
 
 .stage p {
   margin: 0;
-  transform: translateX(-5%);
+  /* transform: translateX(-5%); */
 }
 
 .ground {
