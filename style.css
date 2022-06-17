@@ -17,7 +17,7 @@ body {
   text-align: center;
   font-size: 10px;
   transition: all 4s;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 body.dark {
@@ -96,6 +96,7 @@ input.down {
   position: absolute;
   bottom: 0.7rem;
   width: 100%;
+  overflow: hidden;
 }
 
 .stage p {
