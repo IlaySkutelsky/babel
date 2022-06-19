@@ -101,7 +101,7 @@ async function setStage() {
   gift = inputElm.value;
   inputElm.editable="false"
   inputElm.blur()
-  // gossip(gift)
+  gossip(gift)
   addClass("input", "down")
   await sleep(1600)
   addClass(".input-wrapper", "up")
