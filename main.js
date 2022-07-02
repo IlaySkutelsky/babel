@@ -285,7 +285,14 @@ function onTyping() {
     }
     return
   }
-  debounce(setStage, 4000)
+  debounce(setStage, 5000)
+}
+
+function handleBlur(e) {
+  let inputElm = document.querySelector("input")
+  setTimeout(_=>{
+    inputElm.focus()
+  }, 50)
 }
 
 function hideElm(selector) {

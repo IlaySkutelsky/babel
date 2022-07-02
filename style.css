@@ -18,6 +18,7 @@ body {
   font-size: 10px;
   transition: all 4s;
   overflow: hidden;
+  cursor: none;
 }
 
 body.dark {
