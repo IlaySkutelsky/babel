@@ -60,7 +60,7 @@ h1 {
   transform: translateX(100%);
 }
 .input-border.show-bar::after {
-  animation: reach-end 4s ease-in forwards;
+  animation: reach-end 5s ease-in forwards;
 }
 
 input {
