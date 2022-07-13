@@ -207,13 +207,13 @@ async function ruinTower() {
 function moveScene() {
   let layers = document.querySelectorAll('.tower p:not(.ground')
   for (let i=0; i< layers.length; i++) {
-    let randDur = Math.floor(Math.random() * 500) + 12000
+    let randDur = Math.floor(Math.random() * 500) + 10000
     let randDelay = Math.floor(Math.random() * 100)
     layers[i].style.animation = `${randDur}ms pan ${randDelay}ms forwards steps(20, start)`
   }
   setTimeout(_=>{
     addClass('.ground', 'disappear')
-  }, 10000)
+  }, 8000)
 }
 
 let towerIsStuckToBottom = true
