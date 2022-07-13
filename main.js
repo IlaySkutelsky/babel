@@ -128,13 +128,13 @@ async function startShow() {
     layerWidth = layerWidth-randomDecrease
     if (towerIsStuckToBottom) testTowerHeight()
   }
-  await sleep(12000)
+  await sleep(10000)
   let groundElm = document.querySelector('.ground')
   groundElm.scrollIntoView({behavior: "smooth", block: "end"});
   await ruinTower()
-  await sleep(5000)
+  await sleep(6000)
   moveScene()
-  await sleep(7000)
+  await sleep(12000)
   rollInDesc()
 }
 
@@ -177,8 +177,7 @@ async function ruinTower() {
   return new Promise(async function(resolve) {
     let layers = document.querySelectorAll('.tower p:not(.ground)')
     let amountOfLayers = layers.length
-    while (amountOfLayers - 5) {
-      let randDelay = Math.random() * 100 + 50
+      let randDelay = Math.random() * 100 + 30
       await sleep(randDelay)
       let randIndex = Math.floor(Math.random()*amountOfLayers)
       let randLayer = layers[randIndex]
@@ -196,9 +195,9 @@ async function ruinTower() {
 function moveScene() {
   let layers = document.querySelectorAll('.tower p:not(.ground')
   for (let i=0; i< layers.length; i++) {
-    let randDur = Math.floor(Math.random() * 500) + 36000
+    let randDur = Math.floor(Math.random() * 500) + 12000
     let randDelay = Math.floor(Math.random() * 100)
-    layers[i].style.animation = `${randDur}ms pan ${randDelay}ms forwards steps(60, start)`
+    layers[i].style.animation = `${randDur}ms pan ${randDelay}ms forwards steps(20, start)`
   }
 }
 
