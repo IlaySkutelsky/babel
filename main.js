@@ -64,6 +64,7 @@ function restartAll() {
   removeClass('.input-wrapper', 'up')
   removeClass('.input-border', 'show-bar')
   removeClass('.desc-wrapper', 'appear')
+  removeClass('.ground', 'disappear')
   hideElm(".desc-wrapper")
   let towerNonGroundElms = document.querySelectorAll(".tower p:not(.ground)")
   towerNonGroundElms.forEach(elm=>elm.remove())
@@ -199,6 +200,9 @@ function moveScene() {
     let randDelay = Math.floor(Math.random() * 100)
     layers[i].style.animation = `${randDur}ms pan ${randDelay}ms forwards steps(20, start)`
   }
+  setTimeout(_=>{
+    addClass('.ground', 'disappear')
+  }, 10000)
 }
 
 let towerIsStuckToBottom = true
