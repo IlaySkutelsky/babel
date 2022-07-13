@@ -178,11 +178,22 @@ async function ruinTower() {
   return new Promise(async function(resolve) {
     let layers = document.querySelectorAll('.tower p:not(.ground)')
     let amountOfLayers = layers.length
+    let amountOfRuins = Math.floor(Math.random() * 3) + 3
+    while (amountOfLayers - amountOfRuins ) {
       let randDelay = Math.random() * 100 + 30
       await sleep(randDelay)
       let randIndex = Math.floor(Math.random()*amountOfLayers)
       let randLayer = layers[randIndex]
       if (randLayer) randLayer.remove()
+      await sleep(20)
+      let randIndex2 = Math.floor(Math.random()*amountOfLayers)
+      let randLayer2 = layers[randIndex2]
+      if (randLayer2) {
+        let text = randLayer2.innerText
+        let randCharIdx = Math.floor(Math.random()*text.length)
+        let newText = text.substring(0, randCharIdx) + ' ' + text.substring(randCharIdx+1)
+        randLayer2.innerText = newText
+      }
       layers = document.querySelectorAll('.tower p:not(.ground)')
       amountOfLayers = layers.length
       if (!towerIsStuckToBottom) {
