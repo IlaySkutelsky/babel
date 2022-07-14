@@ -160,8 +160,8 @@ async function placeStars() {
 }
 
 async function rollInDesc() {
-  showElm('.desc-wrapper')
   addClass('.desc-wrapper', 'appear')
+  showElm('.desc-wrapper')
   await sleep(7000)
   removeClass("body", "dark")
   await sleep(1200)
