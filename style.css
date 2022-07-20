@@ -153,6 +153,10 @@ input.down {
 .desc p.dark {
   color: black;
   opacity: 0;
+  transition: 3s;
+}
+.desc p.dark.appear {
+  opacity: 1;
 }
 
 .appear {
