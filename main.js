@@ -102,7 +102,7 @@ async function setStage() {
   let inputElm = document.querySelector("input")
   gift = inputElm.value;
   inputElm.editable="false"
-  inputElm.blur()
+  inputElm.blur({isForced: true})
   gossip(gift)
   addClass("input", "down")
   await sleep(1600)
@@ -304,6 +304,7 @@ function onTyping() {
 }
 
 function handleBlur(e) {
+  if (e.isForced) return
   let inputElm = document.querySelector("input")
   setTimeout(_=>{
     inputElm.focus()
