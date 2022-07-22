@@ -2,6 +2,7 @@ let timer
 let gift
 let baseWidth = 30
 let layerWidth = baseWidth
+let blurIsForced = false
 
 function restartBarAnimation() {
   removeClass(".input-border", "show-bar")
@@ -102,8 +103,8 @@ async function setStage() {
   let inputElm = document.querySelector("input")
   gift = inputElm.value;
   inputElm.editable="false"
-  inputElm.blur({isForced: true})
-  gossip(gift)
+  blurIsForced  = true
+  inputElm.blur()
   addClass("input", "down")
   await sleep(1600)
   addClass(".input-wrapper", "up")
@@ -303,8 +304,11 @@ function onTyping() {
   debounce(setStage, 5000)
 }
 
-function handleBlur(e) {
-  if (e.isForced) return
+function handleBlur() {
+  if (blurIsForced) {
+    blurIsForced = false
+    return
+  }
   let inputElm = document.querySelector("input")
   setTimeout(_=>{
     inputElm.focus()
