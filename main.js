@@ -64,6 +64,7 @@ function restartAll() {
   removeClass('.input-wrapper', 'up')
   removeClass('.input-border', 'show-bar')
   removeClass('.desc-wrapper', 'appear')
+  removeClass('.desc p.dark', 'disappear')
   removeClass('.ground', 'disappear')
   hideElm(".desc-wrapper")
   let towerNonGroundElms = document.querySelectorAll(".tower p:not(.ground)")
