@@ -105,6 +105,7 @@ async function setStage() {
   inputElm.editable="false"
   blurIsForced  = true
   inputElm.blur()
+  gossip(gift)
   addClass("input", "down")
   await sleep(1600)
   addClass(".input-wrapper", "up")
